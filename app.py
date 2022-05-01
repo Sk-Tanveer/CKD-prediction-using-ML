@@ -53,6 +53,14 @@ def stage2():
 def stage3():
     return render_template('stage3.html')
 
+@app.route("/stage4")
+def stage4():
+    return render_template('stage4.html')
+
+@app.route("/stage5")
+def stage5():
+    return render_template('stage5.html')
+
 @app.route("/diet")
 def diet():
     return render_template('diet.html')

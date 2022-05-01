@@ -18,21 +18,35 @@
 <div class="jumbotron ">
 <h1 class="display-5">Want to check the stage!</h1>
   
-<input style="border: 1px solid black;" class="form-control" type="text" id="job" placeholder="Input">
+<input style="border: 1px solid black;" class="form-control" type="text" id="x" placeholder="Serum Creatinine">
+<br>
+<input style="border: 1px solid black;" class="form-control" type="text" id="y" placeholder="Age">
 <script>
 	
 function cond(){
-	var a=document.getElementById("job").value;
-	if (a>=2 && a<=5.0){
+	var x=document.getElementById("x").value;
+	var y=document.getElementById("y").value;
+	var m = x ** (-1.154);
+	var n = y ** -0.203;
+	var gfr = 175*m*n;
+	if (gfr>89){
 		window.location.href = "stage1";
 	}
-	else if(a>=5.1 && a<=6.0){
+	else if(gfr>60 && gfr<90){
 		window.location.href = "stage2";
 
 	}
-	else if(a>=6.1){
+	else if(gfr>30 && gfr<60){
 		window.location.href = "stage3";
 	}
+	else if(gfr>15 && gfr<30){
+		window.location.href = "stage4";
+	}
+	else if(gfr<15){
+		window.location.href = "stage5";
+	}
+
+
 	else {
 		alert('Invalid Input')
 	}
